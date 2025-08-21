@@ -3,10 +3,10 @@ const detailUsecase = require("../../usecase/rental_detail");
 exports.getRentalDetails = async (req, res, next) => {
   try {
     // Dapatkan user_id dari user yang sedang login (dari middleware auth)
-    const userId = req.user.id; // Sesuaikan dengan cara Anda menyimpan user di request
+    // const userId = req.user.id; // Sesuaikan dengan cara Anda menyimpan user di request
 
     // Ubah untuk hanya mengambil data milik user ini
-    const data = await detailUsecase.getRentalDetailsByUserId(userId);
+    const data = await detailUsecase.getRentalDetails();
 
     res.status(200).json({
       message: "Success",
@@ -154,16 +154,16 @@ exports.updateRentalDetail = async (req, res, next) => {
 exports.deleteRentalDetail = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const userId = req.user.id;
+    // const userId = req.user.id;
 
     // Periksa kepemilikan
-    const isOwner = await detailUsecase.checkRentalDetailOwnership(id, userId);
-    if (!isOwner) {
-      return next({
-        message: "Not authorized to delete this rental detail",
-        statusCode: 403,
-      });
-    }
+    // const isOwner = await detailUsecase.deleteRentalDetail(id); //userId checkRentalDetailOwnership
+    // if (!isOwner) {
+    //   return next({
+    //     message: "Not authorized to delete this rental detail",
+    //     statusCode: 403,
+    //   });
+    // }
 
     const data = await detailUsecase.deleteRentalDetail(id);
 
