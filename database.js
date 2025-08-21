@@ -2,20 +2,46 @@ require("dotenv").config();
 
 module.exports = {
   development: {
-    use_env_variable: "DATABASE_URL",
+    username: process.env.POSTGRES_USERNAME,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE,
+    host: process.env.POSTGRES_HOST,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: false,
-    },
+  },
+  test: {
+    username: process.env.POSTGRES_USERNAME,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE,
+    host: process.env.POSTGRES_HOST,
+    dialect: "postgres",
   },
   production: {
-    use_env_variable: "DATABASE_URL",
+    username: process.env.POSTGRES_USERNAME,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE,
+    host: process.env.POSTGRES_HOST,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
   },
 };
+
+// require("dotenv").config();
+
+// module.exports = {
+//   development: {
+//     use_env_variable: "DATABASE_URL",
+//     dialect: "postgres",
+//     dialectOptions: {
+//       ssl: false,
+//     },
+//   },
+//   production: {
+//     use_env_variable: "DATABASE_URL",
+//     dialect: "postgres",
+//     dialectOptions: {
+//       ssl: {
+//         require: true,
+//         rejectUnauthorized: false,
+//       },
+//     },
+//   },
+// };
