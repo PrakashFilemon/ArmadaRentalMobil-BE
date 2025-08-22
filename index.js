@@ -46,6 +46,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Local : http://localhost:3000/`);
-});
+app.listen(port, () => {});
