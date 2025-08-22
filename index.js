@@ -1,4 +1,7 @@
 require("dotenv").config();
+console.log("🚀 Serverless function started");
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("DB URL exists:", !!process.env.DATABASE_URL);
 
 const express = require("express");
 const fileUpload = require("express-fileupload");
