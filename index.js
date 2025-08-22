@@ -47,6 +47,12 @@ app.use((err, req, res, next) => {
     message,
   });
 });
+console.log("🔎 Environment Variables Check");
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("DATABASE_URL exists:", !!process.env.DATABASE_URL);
+console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
+console.log("CLOUDINARY_URL exists:", !!process.env.CLOUDINARY_URL);
+console.log("PORT:", process.env.PORT);
 
 // ❌ jangan pakai app.listen() di Vercel
 // ✅ ekspor app untuk Vercel handler
